@@ -78,15 +78,45 @@
 
 
 
-    <div class="containter text-center py-5">
+    <div class="container text-center py-5">
         <h2 id="titulo">Ciclo While</h2>
         <div class="py-4">
-            <input type="number" id="numeroCiclos" class="form-control text-center" placeholder="adivina....?">
+            <input type="number" id="numeroCiclos" class="form-control text-center" placeholder="adivina el numero de 1 cifra">
         </div>
         <button id="boton" class="btn btn-success">Enviar</button>
         <div id="resultado" class="py-4">
         </div>
     </div>
+
+    <script>
+        document.getElementById("boton").onclick  =function() {
+            document.getElementById('resultado').innerHTML = '';//Limpiamos pantalla
+            var usuario = document.getElementById("numeroCiclos").value;
+            var maquina = 8;
+            var detener = false;
+            var contador = 1;
+            var maximo = 10;
+
+            while(contador<=usuario && detener==false){
+
+                if(usuario>maximo){
+                    document.getElementById("resultado").innerHTML += "stop de ciclo";
+                    detener = true;
+                }
+                
+                if(usuario==maquina){
+                    document.getElementById("resultado").innerHTML += "GANASTE!!";
+                    document.getElementById("numeroCiclos").value=""; detener = true;
+                }
+
+
+                else{
+                    document.getElementById("resultado").innerHTML += ':( perdiste x:' + contador + '</br>';
+                    contador++;
+                }
+            }
+        }
+    </script>
 
     <!--link bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
