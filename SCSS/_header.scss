@@ -1,0 +1,56 @@
+header{
+    background-color: #FFD32D;
+}
+
+#sliderhome{
+    width: 60%;
+}
+
+
+.menu-bar{
+
+    background-color: #ffff;
+
+    a{
+        color: #ff6347;
+        font-size: 1rem;
+        font-weight: 1000;
+        text-decoration: none;
+
+    }
+
+    li:not(:last-child){
+        margin-right: 3rem;
+    }
+
+}
+
+@media screen and (max-width: 930px) {
+
+    #logoelectro{
+        display: flex;
+        justify-content: center;
+    }
+
+    #iconsmenu{
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .menu-bar{
+
+    
+        a{
+            color: #ff6347;
+            font-size: 0.7rem;
+            font-weight: 1000;
+            text-decoration: none;
+    
+        }
+
+    }
+
+  
+
+}
