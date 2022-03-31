@@ -14,7 +14,7 @@
     <script src="https://kit.fontawesome.com/b5317c938c.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body ID="bodyIndex">
     <header>
         <div class="container">
             <div class="row">
@@ -78,8 +78,8 @@
     <!--Inicio carousel-->
 
     <div class="container">
-        <div class="row d-flex justify-content-center mb-5">
-            <div id="sliderhome" class="carousel slide col-10"     data-bs-ride="carousel">
+        <div class="row d-flex justify-content-center">
+            <div id="sliderhome" class="carousel slide col-10" data-bs-ride="carousel">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#sliderhome" data-bs-slide-to="0" class="active"
                         aria-current="true" aria-label="Slide 1"></button>
@@ -90,20 +90,131 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="./imagenes/cuotas.jpg" class="d-block w-100" alt="...">
+                        <img src="./imagenes/promos (1).jpg" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="./imagenes/descuentos.jpg" class="d-block w-100" alt="...">
+                        <img src="./imagenes/promos (2).jpg" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="./imagenes/promocelu.jpg" class="d-block w-100" alt="...">
+                        <img src="./imagenes/devolucion.jpg" class="d-block w-100" alt="...">
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <section id="sectionbody" class="container d-flex justify-content-center align-items-center flex-column">
+        <form class="form-inline d-flex col-md-12 justify-content-center buscador">
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscar por rubro">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Buscar</button>
+        </form>
 
+        <div class="grid-container row d-flex">
+            <h3 class="col-md-12">Listado de productos</h3>
+            <aside class="col-md-2 d-flex flex-column">
+                <hr>
+                <div class="categorias">
+                    <p>Categorias</p>
+                    <form class="categoriasCheckbox">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <input name="identidicador" id="celulares" type="radio">
+                            <label for="celulares">CELULARES</label>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <input name="identidicador" id="TV" type="radio">
+                            <label for="TV">TV</label>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <input name="identidicador" id="LAVARROPAS" type="radio">
+                            <label for="LAVARROPAS">LAVARROPAS</label>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <input name="identidicador" id="NOTEBOOK" type="radio">
+                            <label for="NOTEBOOK">NOTEBOOK</label>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <input name="identidicador" id="HELADERAS" type="radio">
+                            <label for="HELADERAS">HELADERAS</label>
+                        </div>
+
+                    </form>
+                </div>
+                <hr>
+                <p>Rango de precios</p>
+                <form class="precioRange d-flex flex-column">
+                    <label for="rangeSlider_inversed">Mínimo:</label>
+                    <input id="rangeSlider" type="range" min="5000" max="100000" value="5000">
+                    <label for="rangeSlider">Maximo:</label>
+                    <input id="rangeSlider" type="range" min="5000" max="70000" value="70000">
+                </form>
+            </aside>
+           
+            <div class="grid col-md-10">
+                <div class="unProducto fadeIn">
+                    <p>Samsung S20</p>
+                    <img class="imgResponsive" src="./imagenes/samsungS20.jpg">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a class="btn btn-primary agregar">Agregar</a>
+                        <p class="precio">
+                            $78000
+                        </p>
+                    </div>
+                </div>
+                <div class="unProducto fadeIn">
+                    <p>Samsung S20</p>
+                    <img class="imgResponsive" src="./imagenes/samsungS20.jpg">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a class="btn btn-primary agregar">Agregar</a>
+                        <p class="precio">
+                            78000
+                        </p>
+                    </div>
+                </div>
+                <div class="unProducto fadeIn">
+                    <p>Samsung S20</p>
+                    <img class="imgResponsive" src="./imagenes/samsungS20.jpg">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a class="btn btn-primary agregar">Agregar</a>
+                        <p class="precio">
+                            78000
+                        </p>
+                    </div>
+                </div>
+                <div class="unProducto fadeIn">
+                    <p>Samsung S20</p>
+                    <img class="imgResponsive" src="./imagenes/samsungS20.jpg">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a class="btn btn-primary agregar">Agregar</a>
+                        <p class="precio">
+                            78000
+                        </p>
+                    </div>
+                </div>
+                <div class="unProducto fadeIn">
+                    <p>Samsung S20</p>
+                    <img class="imgResponsive" src="./imagenes/samsungS20.jpg">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a class="btn btn-primary agregar">Agregar</a>
+                        <p class="precio">
+                            78000
+                        </p>
+                    </div>
+                </div>
+                <div class="unProducto fadeIn">
+                    <p>Samsung S20</p>
+                    <img class="imgResponsive" src="./imagenes/samsungS20.jpg">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a class="btn btn-primary agregar">Agregar</a>
+                        <p class="precio">
+                            78000
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
 
     <footer class="pie-pagina">
         <div class="grupo-1">

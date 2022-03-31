@@ -1,3 +1,105 @@
 @import "_header";
 @import "_footer";
 
+
+#bodyIndex{
+    background-color: #00AFC1;
+}
+
+#sectionbody{
+    margin-bottom: 6rem;
+}
+
+.btn-outline-primary {
+    background-color: #FFD32D;
+    border-color: #FFD32D;
+    color: #ffffff;
+    margin-top: 18px !important;
+    margin-left: 5px;
+}
+
+
+.btn-primary {
+    border-color: #FFD32D;
+    background-color: #FFD32D;
+}
+
+form.form-inline {
+    align-self: center;
+    background-color: #00AFC1;
+    padding: 2rem;
+    border-radius: 5px;
+}
+
+form.form-inline input.form-control {
+    width: 70%;
+
+}
+
+form input {
+    margin-top: 18px;
+}
+
+.grid-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 5px;
+}
+
+.grid {
+    display: grid;
+    grid-column: (minmax(12rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+
+}
+
+.imgResponsive {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+
+.unProducto {
+    display: flex;
+    flex-flow: nowrap column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 1rem;
+
+    img {
+        margin-bottom: 2rem;
+    }
+
+    div {
+        width: 100%;
+
+        .precio {
+            margin-bottom: 0;
+        }
+    }
+}
+
+aside {
+    .categoriasCheckbox {
+        div {
+            margin-bottom: .5rem;
+
+            label {
+                margin-bottom: 0;
+                width: 100%;
+                margin-left: .5rem;
+            }
+        }
+    }
+
+}
+
+aside {
+    .precioRange{
+        input{
+    margin-bottom: .5rem;
+        }
+    }
+}

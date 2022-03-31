@@ -2,16 +2,12 @@ header {
   background-color: #FFD32D;
 }
 
-#sliderhome {
-  width: 60%;
-}
-
 .menu-bar {
-  background-color: #ffff;
+  background-color: #006778;
 }
 
 .menu-bar a {
-  color: #ff6347;
+  color: #FFD32D;
   font-size: 1rem;
   font-weight: 1000;
   text-decoration: none;
@@ -130,5 +126,107 @@ header {
     grid-gap: 30px;
     padding: 35px 0px;
   }
+}
+
+#bodyIndex {
+  background-color: #00AFC1;
+}
+
+#sectionbody {
+  margin-bottom: 6rem;
+}
+
+.btn-outline-primary {
+  background-color: #FFD32D;
+  border-color: #FFD32D;
+  color: #ffffff;
+  margin-top: 18px !important;
+  margin-left: 5px;
+}
+
+.btn-primary {
+  border-color: #FFD32D;
+  background-color: #FFD32D;
+}
+
+form.form-inline {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  background-color: #00AFC1;
+  padding: 2rem;
+  border-radius: 5px;
+}
+
+form.form-inline input.form-control {
+  width: 70%;
+}
+
+form input {
+  margin-top: 18px;
+}
+
+.grid-container {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 5px;
+}
+
+.grid {
+  display: -ms-grid;
+  display: grid;
+  grid-column: minmax(12rem, 1fr);
+  -ms-grid-columns: (minmax(12rem, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+}
+
+.imgResponsive {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.unProducto {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: nowrap column;
+          flex-flow: nowrap column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100%;
+  padding: 1rem;
+}
+
+.unProducto img {
+  margin-bottom: 2rem;
+}
+
+.unProducto div {
+  width: 100%;
+}
+
+.unProducto div .precio {
+  margin-bottom: 0;
+}
+
+aside .categoriasCheckbox div {
+  margin-bottom: .5rem;
+}
+
+aside .categoriasCheckbox div label {
+  margin-bottom: 0;
+  width: 100%;
+  margin-left: .5rem;
+}
+
+aside .precioRange input {
+  margin-bottom: .5rem;
 }
 /*# sourceMappingURL=styles.css.map */
