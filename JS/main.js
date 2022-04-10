@@ -1,44 +1,37 @@
 
-let valor = 0;
-
-let precio2 = 0;
-
-
-function valorProducto(){
-
-    let producto = prompt("que producto desea agregar? tv - celular - heladera");    
-
-    if(producto == "tv") {
-        valor += 30000
-    }
-    if(producto == "celular") {
-        valor += 50000
-    }
-    if(producto == "heladera") {
-        valor += 45000
+class electrodomestico {
+    constructor (marca, modelo, precio,){
+    this.marca = marca;
+    this.modelo = modelo;
+    this.precio = parseFloat(precio);
     }
 
+    addIva(){
+        return this.precio * 1.21;
+    }
 }
 
-function sumaProductos(valor,precio2){
-    let suma;
-    suma = (valor) * 1.21;
-    alert("sus productos tienen un valor final de " + suma + " mas IVA");
+let carrito = [];
+
+do {
+    let informacion = prompt ('ingrese la marca del producto o fin para finalizar la compra');
+    if( informacion === "fin"){
+        break;
+    }else{
+        marcaProducto = informacion;
+        let modeloProducto = prompt (" ingrese el modelo");
+        let precioProducto = parseInt(prompt (" ingrese el precio del producto"));
+        carrito.push(new electrodomestico(marcaProducto, modeloProducto, precioProducto))
+    }
 }
+while (carrito != "fin")
 
-//llamamos funcion
-valorProducto ();
+console.log(carrito);
 
-alert("Su producto tiene un falor final de " + valor);
-
-let otroProducto = confirm("desea agregar otro producto (Aceptar -Si- cancelar -NO-?)")
-
-if (otroProducto == true){
-   valorProducto();
+for (var productofinal of carrito) {
+console.log (productofinal.marca)
+console.log (productofinal.modelo)
+console.log (productofinal.addIva())
 }
-
-//llamamos funcion de suma
-sumaProductos(valor,precio2)
-
 
 
