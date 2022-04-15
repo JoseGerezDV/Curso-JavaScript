@@ -61,23 +61,28 @@ buscador();
 
 // informa 3 o 6 cuotas según elija el cliente.
 
-for ( var precioCuotas of productoNombre){
-    let compra3cuotas = confirm("3 cuotas de: " + (productofinal.addIva() / 3))
 
-    if(compra3cuotas === true){
+function productoCuotas(){
+    for ( var precioCuotas of productoNombre){
+        let compra3cuotas = confirm("3 cuotas de: " + (productofinal.addIva() / 3))
+
+        if(compra3cuotas === true){
         alert ("Felicitaciones por su compra")
-        break;
-    }else{
-       let compra6cuotas = confirm("Tambien tenemos 6 cuotas de: " + (productofinal.addIva() / 6))
+            break;
+            }else{
+                let compra6cuotas = confirm("Tambien tenemos 6 cuotas de: " + (productofinal.addIva() / 6))
 
-       if(compra6cuotas === true){
-       alert ("Felicitaciones por su compra")
-        break;
-       }else{
-           alert("Esperamos vuelva pronto!")
-       }
+                if(compra6cuotas === true){
+                 alert ("Felicitaciones por su compra")
+                 break;
+            }else{
+             alert("Esperamos vuelva pronto!")
+            }
+        }
     }
 }
+
+productoCuotas();
 
 
 
