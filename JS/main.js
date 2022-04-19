@@ -1,92 +1,75 @@
+const botonAgregarAlCarritoCompras = document.querySelectorAll('.addToCart');
+botonAgregarAlCarritoCompras.forEach(botonAgregarProducto =>{
+    botonAgregarProducto.addEventListener('click', agregarAlCarritoClicked);
+});
 
-//Array para carga de productos
+const shoppingCartItemsContainer = document.querySelector('.shoppingCartItemsContainer');
 
-class electrodomestico {
-    constructor (marca, modelo, precio,){
-    this.marca = marca;
-    this.modelo = modelo;
-    this.precio = parseFloat(precio);
-    }
+function agregarAlCarritoClicked(event) {
+   const button = event.target;
+   const unProducto = button.closest('.unProducto');
+   const itemTitle = unProducto.querySelector('.item-title').textContent;
+   const itemprecio = unProducto.querySelector('.precio').textContent;
+   const itemimagen = unProducto.querySelector('.imgResponsive').src;
 
-    addIva(){
-        return this.precio * 1.21;
-    }
+
+   agregarProductosAlCarrito(itemTitle,itemprecio,itemimagen)
+  
 }
 
-let carrito = [];
+function agregarProductosAlCarrito (itemTitle,itemprecio,itemimagen){
+   const productoCarritoRow =  document.createElement('div');
+   const contenidoCarrito =    ` 
+   <div class="row shoppingCartItem">
+   <div class="col-6">
+       <div class="shopping-cart-item d-flex align-items-center h-100 border-bottom pb-2 pt-1">
+           <img src=${itemimagen} class="shopping-cart-image">
+           <h6 class="shopping-cart-item-title shoppingCartItemTitle text-truncate p-2">${itemTitle}</h6>
+       </div>
+   </div>
+   <div class="col-2">
+       <div class="shopping-cart-price d-flex align-items-center h-100 border-bottom pb-2 pt-3">
+           <p class="item-price mb-0 shoppingCartItemPrice">${itemprecio}</p>
+       </div>
+   </div>
+   <div class="col-4">
+       <div
+           class="shopping-cart-quantity d-flex justify-content-between align-items-center h-100 border-bottom pb-2 pt-2">
+           <input class="shopping-cart-quantity-input shoppingCartItemQuantity" type="number"
+               value="1">
+           <button class="btn btn-danger buttonDelete" type="button">X</button>
+       </div>
+   </div>
+</div>`;
 
-function cargaDeProductos(){
-do {
-    let informacion = prompt ('ingrese la marca del producto o fin para finalizar la compra');
-    if( informacion === "fin"){
-        break;
-    }else{
-        marcaProducto = informacion;
-        let modeloProducto = prompt (" ingrese el modelo");
-        let precioProducto = parseInt(prompt (" ingrese el precio del producto"));
-        carrito.push(new electrodomestico(marcaProducto, modeloProducto, precioProducto))
-    }
-}
-while (carrito != "fin")
+        productoCarritoRow.innerHTML = contenidoCarrito
+        shoppingCartItemsContainer.append(productoCarritoRow);
 
-console.log(carrito);
-
-for (var productofinal of carrito) {
-console.log (productofinal.marca)
-console.log (productofinal.modelo)
-console.log (productofinal.addIva())
-};
-}
-
-cargaDeProductos();
-
-//Buscador de productos pre-cargados. Arroja un producto buscado pre-cargado y precio.
-
-function buscador (){
-var buscoProducto = prompt("Ingrese el producto que desea buscar")
-var productoNombre = carrito.filter( productofinal => productofinal.marca.includes(buscoProducto))
-console.log(productoNombre)
-
-
-for( var productofinal of productoNombre ){
-    alert("nombre  " + productofinal.marca)
-    alert("Modelo  " + productofinal.modelo)
-    alert ("precio  " + productofinal.addIva())
+        subirTotalCarrito();
+  
 }
 
+function subirTotalCarrito(){
+    let total = 0;
+    const shoppingCartTotal = document.querySelector('.shoppingCartTotal');
+
+    const shoppingCartItems = document.querySelectorAll('.shoppingCartItem');
+
+    shoppingCartItems.forEach((shoppingCartItem) => { 
+        const shoppingCartItemsPriceElement = shoppingCartItem.querySelector('.shoppingCartItemPrice');
+
+        const shoppingCartItemPrice = Number(shoppingCartItemsPriceElement.textContent.replace('$',''));
+          
+        const shoppingCartItemQuantityElement = shoppingCartItem.querySelector('.shoppingCartItemQuantity');
+
+        const shoppingCartItemQuantity = Number(shoppingCartItemQuantityElement.value);
+
+        total = total + shoppingCartItemPrice * shoppingCartItemQuantity;
+    });
+
+    shoppingCartTotal.innerHTML = `$ ${total}`;
+
 }
-
-buscador();
-
-
-// informa 3 o 6 cuotas según elija el cliente.
-
-
-function productoCuotas(){
-    for ( var precioCuotas of productoNombre){
-        let compra3cuotas = confirm("3 cuotas de: " + (productofinal.addIva() / 3))
-
-        if(compra3cuotas === true){
-        alert ("Felicitaciones por su compra")
-            break;
-            }else{
-                let compra6cuotas = confirm("Tambien tenemos 6 cuotas de: " + (productofinal.addIva() / 6))
-
-                if(compra6cuotas === true){
-                 alert ("Felicitaciones por su compra")
-                 break;
-            }else{
-             alert("Esperamos vuelva pronto!")
-            }
-        }
-    }
-}
-
-productoCuotas();
-
-
-
-
 
 
 
