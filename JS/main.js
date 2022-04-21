@@ -56,13 +56,13 @@ function subirTotalCarrito(){
     const shoppingCartItems = document.querySelectorAll('.shoppingCartItem');
 
     shoppingCartItems.forEach((shoppingCartItem) => { 
-        const shoppingCartItemsPriceElement = shoppingCartItem.querySelector('.shoppingCartItemPrice');
+        const shoppingCartItemsPriceElementos = shoppingCartItem.querySelector('.shoppingCartItemPrice');
 
-        const shoppingCartItemPrice = Number(shoppingCartItemsPriceElement.textContent.replace('$',''));
+        const shoppingCartItemPrice = Number(shoppingCartItemsPriceElementos.textContent.replace('$',''));
           
-        const shoppingCartItemQuantityElement = shoppingCartItem.querySelector('.shoppingCartItemQuantity');
+        const elementosShoppingCartItemQuantity = shoppingCartItem.querySelector('.shoppingCartItemQuantity');
 
-        const shoppingCartItemQuantity = Number(shoppingCartItemQuantityElement.value);
+        const shoppingCartItemQuantity = Number(elementosShoppingCartItemQuantity.value);
 
         total = total + shoppingCartItemPrice * shoppingCartItemQuantity;
     });
