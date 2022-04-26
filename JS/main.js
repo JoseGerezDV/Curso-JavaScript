@@ -106,7 +106,11 @@ function comprarButtonclicked(){
     subirTotalCarrito();
 }
 
-//LocalStorage
+                // --------------------------------------//
+                // --------------------------------------//
+                // ----------- LOCAL STORAGE ------------//
+                // --------------------------------------//
+                // --------------------------------------//
 
 /*
 function addLocalStorage(){
@@ -121,8 +125,63 @@ function addLocalStorage(){
     }
   }*/
 
-  //FILTRADO POR CATEGORIAS
+                // --------------------------------------//
+                // --------------------------------------//
+                // ---------------- BUSCADOR ------------//
+                // --------------------------------------//
+                // --------------------------------------//
+
+
+  document.addEventListener("keyup", e=>{
+
+    if (e.target.matches("#barrabusqueda")){
   
+        if (e.key ==="Escape")e.target.value = ""
+  
+        document.querySelectorAll(".item-title").forEach(fruta =>{
+  
+            fruta.textContent.toLowerCase().includes(e.target.value.toLowerCase())
+              ?fruta.classList.remove("filtro")
+              :fruta.classList.add("filtro")
+        })
+  
+    }
+  
+  
+  })
+
+  //FILTRO POR CATEGORIAS
+
+  const categoriasCheckbox = (`
+  <div class="categorias">
+  <p>Categorias</p>
+  <form class="categoriasCheckbox">
+      <div class="d-flex justify-content-between align-items-center">
+          <input name="identidicador" class="category_item" category="celular" type="radio">
+          <label for="celulares">CELULARES</label>
+      </div>
+      <div class="d-flex justify-content-between align-items-center">
+          <input name="identidicador" class="category_item" category="tv" type="radio">
+          <label for="TV">TV</label>
+      </div>
+      <div class="d-flex justify-content-between align-items-center">
+          <input name="identidicador" class="category_item" category="lavarropas" type="radio">
+          <label for="lavarropas">LAVARROPAS</label>
+      </div>
+      <div class="d-flex justify-content-between align-items-center">
+          <input name="identidicador" class="category_item" category="notebook" type="radio">
+          <label for="notebook">NOTEBOOK</label>
+      </div>
+      <div class="d-flex justify-content-between align-items-center">
+          <input name="identidicador" class="category_item" category="heladeras" type="radio">
+          <label for="heladeras">HELADERAS</label>
+      </div>
+      <input class="btn btn-primary" type="submit" value="aplicar">
+  </form>
+</div>
+    `
+);
+
 
 
     
