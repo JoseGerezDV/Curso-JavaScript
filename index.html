@@ -106,19 +106,6 @@
                     <div class="shopping-cart-total d-flex align-items-center">
                         <p class="totalCompra">Total</p>
                         <p class="valor shoppingCartTotal">$0</p>
-                        <div class="toast ml-auto bg-info" role="alert" aria-live="assertive" aria-atomic="true"
-                            data-delay="2000">
-                            <div class="toast-header">
-                                <span>✅</span>
-                                <strong class="mr-auto ml-1 text-secondary">Elemento en el carrito</strong>
-                                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="toast-body text-white">
-                                Se aumentó correctamente la cantidad
-                            </div>
-                        </div>
                         <button id="botonCompra" class="btn btn-success comprarButton" type="button" data-toggle="modal"
                             data-target="#comprarModal">Comprar</button>
                     </div>
@@ -126,29 +113,6 @@
             </div>
 
             <!-- END TOTAL -->
-
-            <!-- START MODAL COMPRA -->
-            <div class="modal fade" id="comprarModal" tabindex="-1" aria-labelledby="comprarModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="comprarModalLabel">Gracias por su compra</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <p>Pronto recibirá su pedido</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- END MODAL COMPRA -->
-
 
         </div>
 
@@ -197,24 +161,24 @@
                     <p>Categorias</p>
                     <form class="categoriasCheckbox">
                         <div class="d-flex justify-content-between align-items-center">
-                            <input name="identidicador" id="celulares" type="radio">
+                            <input name="identidicador" class="category_item" category="celular" type="radio">
                             <label for="celulares">CELULARES</label>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
-                            <input name="identidicador" id="TV" type="radio">
+                            <input name="identidicador" class="category_item" category="tv" type="radio">
                             <label for="TV">TV</label>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
-                            <input name="identidicador" id="LAVARROPAS" type="radio">
-                            <label for="LAVARROPAS">LAVARROPAS</label>
+                            <input name="identidicador" class="category_item" category="lavarropas" type="radio">
+                            <label for="lavarropas">LAVARROPAS</label>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
-                            <input name="identidicador" id="NOTEBOOK" type="radio">
-                            <label for="NOTEBOOK">NOTEBOOK</label>
+                            <input name="identidicador" class="category_item" category="notebook" type="radio">
+                            <label for="notebook">NOTEBOOK</label>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
-                            <input name="identidicador" id="HELADERAS" type="radio">
-                            <label for="HELADERAS">HELADERAS</label>
+                            <input name="identidicador" class="category_item" category="heladeras" type="radio">
+                            <label for="heladeras">HELADERAS</label>
                         </div>
                         <input class="btn btn-primary" type="submit" value="aplicar">
                     </form>
@@ -231,7 +195,7 @@
             </aside>
 
             <div class="grid col-md-10" class="products">
-                <div class="unProducto fadeIn">
+                <div class="unProducto fadeIn" category="celulares">
                     <p class="item-title">Samsung S20</p>
                     <img class="imgResponsive" src="./imagenes/samsungS20.jpg">
                     <div class="d-flex justify-content-between align-items-center">
@@ -241,7 +205,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="unProducto fadeIn">
+                <div class="unProducto fadeIn" category="celulares">
                     <p class="item-title">Iphone 13 128Gb</p>
                     <img class="imgResponsive" src="./imagenes/Iphone13.jpg">
                     <div class="d-flex justify-content-between align-items-center">
@@ -251,7 +215,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="unProducto fadeIn">
+                <div class="unProducto fadeIn" category="celulares">
                     <p class="item-title">Motorola G Stylus</p>
                     <img class="imgResponsive" src="./imagenes/MotoGStylus.jpg">
                     <div class="d-flex justify-content-between align-items-center">
@@ -261,7 +225,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="unProducto fadeIn">
+                <div class="unProducto fadeIn" category="tv">
                     <p class="item-title">TV Samsung 55" 4K</p>
                     <img class="imgResponsive" src="./imagenes/samsung55.jpg">
                     <div class="d-flex justify-content-between align-items-center">
@@ -271,7 +235,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="unProducto fadeIn">
+                <div class="unProducto fadeIn" category="tv">
                     <p class="item-title">TV NOBLEX 50" 4K</p>
                     <img class="imgResponsive" src="./imagenes/Noblex50.jpg">
                     <div class="d-flex justify-content-between align-items-center">
@@ -281,7 +245,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="unProducto fadeIn">
+                <div class="unProducto fadeIn" category="tv">
                     <p class="item-title">TV LG 65" 4K</p>
                     <img class="imgResponsive" src="./imagenes/LG.jpg">
                     <div class="d-flex justify-content-between align-items-center">
@@ -291,7 +255,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="unProducto fadeIn">
+                <div class="unProducto fadeIn" category="lavarropas">
                     <p class="item-title">Lavarropas LG 8.5kg</p>
                     <img class="imgResponsive" src="./imagenes/LavLg8.5kg.jpg">
                     <div class="d-flex justify-content-between align-items-center">
@@ -301,7 +265,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="unProducto fadeIn">
+                <div class="unProducto fadeIn" category="lavarropas">
                     <p class="item-title">Lavarropas Samsung 7Kg</p>
                     <img class="imgResponsive" src="./imagenes/LavSams7kg.jpg">
                     <div class="d-flex justify-content-between align-items-center">
@@ -311,7 +275,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="unProducto fadeIn">
+                <div class="unProducto fadeIn" category="heladera">
                     <p class="item-title">Heladera GE 12L</p>
                     <img class="imgResponsive" src="./imagenes/HelGE.jpg">
                     <div class="d-flex justify-content-between align-items-center">
@@ -321,7 +285,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="unProducto fadeIn">
+                <div class="unProducto fadeIn" category="heladera">
                     <p class="item-title">Heladera Whirlpool 10L</p>
                     <img class="imgResponsive" src="./imagenes/HelWhirl.jpg">
                     <div class="d-flex justify-content-between align-items-center">
@@ -331,7 +295,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="unProducto fadeIn">
+                <div class="unProducto fadeIn" category="notebook">
                     <p class="item-title">MACbook pro m1</p>
                     <img class="imgResponsive" src="./imagenes/Mcbook.jpg">
                     <div class="d-flex justify-content-between align-items-center">
@@ -341,7 +305,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="unProducto fadeIn">
+                <div class="unProducto fadeIn" category="notebook">
                     <p class="item-title">Notebook Lenovo E15 2da Gen</p>
                     <img class="imgResponsive" src="./imagenes/NotLenovo.jpeg">
                     <div class="d-flex justify-content-between align-items-center">

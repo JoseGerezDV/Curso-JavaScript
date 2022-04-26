@@ -3,6 +3,9 @@ botonAgregarAlCarritoCompras.forEach(botonAgregarProducto =>{
     botonAgregarProducto.addEventListener('click', agregarAlCarritoClicked);
 });
 
+const comprarButton = document.querySelector('.comprarButton');
+comprarButton.addEventListener('click', comprarButtonclicked);
+
 const shoppingCartItemsContainer = document.querySelector('.shoppingCartItemsContainer');
 
 function agregarAlCarritoClicked(event) {
@@ -45,9 +48,16 @@ function agregarProductosAlCarrito (itemTitle,itemprecio,itemimagen){
         productoCarritoRow.innerHTML = contenidoCarrito
         shoppingCartItemsContainer.append(productoCarritoRow);
 
+        productoCarritoRow.querySelector('.buttonDelete').addEventListener('click',removerProductoDelCarrito);
+
+        productoCarritoRow.querySelector('.shoppingCartItemQuantity').addEventListener('change', quantityChanged);
+
         subirTotalCarrito();
   
+           
 }
+
+//FUNCION TOTAL CARRITO -  SUMA DE TODOS LOS PRODUCTOS -
 
 function subirTotalCarrito(){
     let total = 0;
@@ -69,8 +79,50 @@ function subirTotalCarrito(){
 
     shoppingCartTotal.innerHTML = `$ ${total}`;
 
+    //addLocalStorage()    
+
 }
 
+// DAMOS VIDA AL BOTON DE REMOVER PRODUCTO DEL CARRITO - TAMBIEN SE DESCUENTA SU VALOR DEL TOTAL -
+
+function removerProductoDelCarrito(event){
+    const borrarArticulo = event.target;
+    borrarArticulo.closest('.shoppingCartItem').remove();
+    subirTotalCarrito();
+}
+
+// SE LE DA UTILIDAD AL INPUT NUMBER - SI DEJAR QUE EL CLIENTE INGRESE NUMEROS NEGATIVOS TAMBIEN LA CANTIDAD INFLUYE EN EL VALOR TOTAL DEL CARRITO
+
+function quantityChanged(event){
+   const input = event.target;
+   if(input.value <= 0){
+       input.value = 1;
+   }
+   subirTotalCarrito();
+}
+
+function comprarButtonclicked(){
+    shoppingCartItemsContainer.innerHTML = '';
+    subirTotalCarrito();
+}
+
+//LocalStorage
+
+/*
+function addLocalStorage(){
+    localStorage.setItem('shoppingCartItemsContainer', JSON.stringify(shoppingCartItemsContainer))
+  }
+  
+  window.onload = function(){
+    const storage = JSON.parse(localStorage.getItem('shoppingCartItemsContainer'));
+    if(storage){
+        shoppingCartItemsContainer = storage;
+      renderCarrito()
+    }
+  }*/
+
+  //FILTRADO POR CATEGORIAS
+  
 
 
     
