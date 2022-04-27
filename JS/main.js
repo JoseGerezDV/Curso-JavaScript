@@ -22,7 +22,7 @@ function agregarAlCarritoClicked(event) {
 
 function agregarProductosAlCarrito (itemTitle,itemprecio,itemimagen){
    const productoCarritoRow =  document.createElement('div');
-   const contenidoCarrito =    ` 
+   const contenidoCarrito =   ` 
    <div class="row shoppingCartItem">
    <div class="col-6">
        <div class="shopping-cart-item d-flex align-items-center h-100 border-bottom pb-2 pt-1">
@@ -78,8 +78,7 @@ function subirTotalCarrito(){
     });
 
     shoppingCartTotal.innerHTML = `$ ${total}`;
-
-    //addLocalStorage()    
+ 
 
 }
 
@@ -145,42 +144,28 @@ function addLocalStorage(){
               :fruta.classList.add("filtro")
         })
   
-    }
-  
+    }  
   
   })
 
   //FILTRO POR CATEGORIAS
 
-  const categoriasCheckbox = (`
-  <div class="categorias">
-  <p>Categorias</p>
-  <form class="categoriasCheckbox">
-      <div class="d-flex justify-content-between align-items-center">
-          <input name="identidicador" class="category_item" category="celular" type="radio">
-          <label for="celulares">CELULARES</label>
-      </div>
-      <div class="d-flex justify-content-between align-items-center">
-          <input name="identidicador" class="category_item" category="tv" type="radio">
-          <label for="TV">TV</label>
-      </div>
-      <div class="d-flex justify-content-between align-items-center">
-          <input name="identidicador" class="category_item" category="lavarropas" type="radio">
-          <label for="lavarropas">LAVARROPAS</label>
-      </div>
-      <div class="d-flex justify-content-between align-items-center">
-          <input name="identidicador" class="category_item" category="notebook" type="radio">
-          <label for="notebook">NOTEBOOK</label>
-      </div>
-      <div class="d-flex justify-content-between align-items-center">
-          <input name="identidicador" class="category_item" category="heladeras" type="radio">
-          <label for="heladeras">HELADERAS</label>
-      </div>
-      <input class="btn btn-primary" type="submit" value="aplicar">
-  </form>
-</div>
-    `
-);
+  $(document).ready(function(){
+
+    $('.category_item').click(function(){
+    let catProduct = $(this).attr('category');
+
+    $('.product_item').hide();
+
+    $('.product_item[category="'+catProduct+'"]').show();
+
+    });   
+    
+    $('.category_item[category="todo"]').click(function(){
+        $('.product_item').show();
+    })
+
+  });
 
 
 

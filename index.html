@@ -163,6 +163,10 @@
                     <p>Categorias</p>
                     <form class="categoriasCheckbox">
                         <div class="d-flex justify-content-between align-items-center">
+                            <input name="identidicador" class="category_item" category="todo" type="radio">
+                            <label for="todo">TODO</label>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
                             <input name="identidicador" class="category_item" category="celular" type="radio">
                             <label for="celulares">CELULARES</label>
                         </div>
@@ -181,8 +185,7 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <input name="identidicador" class="category_item" category="heladeras" type="radio">
                             <label for="heladeras">HELADERAS</label>
-                        </div>
-                        <input class="btn btn-primary" type="submit" value="aplicar">
+                        </div>                       
                     </form>
                 </div>
                 <hr>
@@ -197,7 +200,7 @@
             </aside>
 
             <div class="grid col-md-10" class="products">
-                <div class="unProducto fadeIn" category="celulares">
+                <div class="unProducto fadeIn product_item" category="celular">
                     <p class="item-title">Samsung S20</p>
                     <img class="imgResponsive" src="./imagenes/samsungS20.jpg">
                     <div class="d-flex justify-content-between align-items-center">
@@ -207,7 +210,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="unProducto fadeIn" category="celulares">
+                <div class="unProducto fadeIn product_item" category="celular">
                     <p class="item-title">Iphone 13 128Gb</p>
                     <img class="imgResponsive" src="./imagenes/Iphone13.jpg">
                     <div class="d-flex justify-content-between align-items-center">
@@ -217,7 +220,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="unProducto fadeIn" category="celulares">
+                <div class="unProducto fadeIn product_item" category="celular">
                     <p class="item-title">Motorola G Stylus</p>
                     <img class="imgResponsive" src="./imagenes/MotoGStylus.jpg">
                     <div class="d-flex justify-content-between align-items-center">
@@ -227,7 +230,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="unProducto fadeIn" category="tv">
+                <div class="unProducto fadeIn product_item" category="tv">
                     <p class="item-title">TV Samsung 55" 4K</p>
                     <img class="imgResponsive" src="./imagenes/samsung55.jpg">
                     <div class="d-flex justify-content-between align-items-center">
@@ -237,7 +240,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="unProducto fadeIn" category="tv">
+                <div class="unProducto fadeIn product_item" category="tv">
                     <p class="item-title">TV NOBLEX 50" 4K</p>
                     <img class="imgResponsive" src="./imagenes/Noblex50.jpg">
                     <div class="d-flex justify-content-between align-items-center">
@@ -247,7 +250,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="unProducto fadeIn" category="tv">
+                <div class="unProducto fadeIn product_item" category="tv">
                     <p class="item-title">TV LG 65" 4K</p>
                     <img class="imgResponsive" src="./imagenes/LG.jpg">
                     <div class="d-flex justify-content-between align-items-center">
@@ -257,7 +260,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="unProducto fadeIn" category="lavarropas">
+                <div class="unProducto fadeIn product_item" category="lavarropas">
                     <p class="item-title">Lavarropas LG 8.5kg</p>
                     <img class="imgResponsive" src="./imagenes/LavLg8.5kg.jpg">
                     <div class="d-flex justify-content-between align-items-center">
@@ -267,7 +270,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="unProducto fadeIn" category="lavarropas">
+                <div class="unProducto fadeIn product_item" category="lavarropas">
                     <p class="item-title">Lavarropas Samsung 7Kg</p>
                     <img class="imgResponsive" src="./imagenes/LavSams7kg.jpg">
                     <div class="d-flex justify-content-between align-items-center">
@@ -277,7 +280,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="unProducto fadeIn" category="heladera">
+                <div class="unProducto fadeIn product_item" category="heladeras">
                     <p class="item-title">Heladera GE 12L</p>
                     <img class="imgResponsive" src="./imagenes/HelGE.jpg">
                     <div class="d-flex justify-content-between align-items-center">
@@ -287,7 +290,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="unProducto fadeIn" category="heladera">
+                <div class="unProducto fadeIn product_item" category="heladeras">
                     <p class="item-title">Heladera Whirlpool 10L</p>
                     <img class="imgResponsive" src="./imagenes/HelWhirl.jpg">
                     <div class="d-flex justify-content-between align-items-center">
@@ -297,7 +300,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="unProducto fadeIn" category="notebook">
+                <div class="unProducto fadeIn product_item" category="notebook">
                     <p class="item-title">MACbook pro m1</p>
                     <img class="imgResponsive" src="./imagenes/Mcbook.jpg">
                     <div class="d-flex justify-content-between align-items-center">
@@ -307,7 +310,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="unProducto fadeIn" category="notebook">
+                <div class="unProducto fadeIn product_item" category="notebook">
                     <p class="item-title">Notebook Lenovo E15 2da Gen</p>
                     <img class="imgResponsive" src="./imagenes/NotLenovo.jpeg">
                     <div class="d-flex justify-content-between align-items-center">
@@ -360,6 +363,10 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
 
+    <!--JQUERY-->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
     <!--JSINDEX-->
     <script src="JS/main.js"></script>
 

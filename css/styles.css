@@ -141,24 +141,24 @@ header {
           box-sizing: border-box;
 }
 
-.shopping-cart .shopping-cart-header {
+.shopping-cart-header {
   border-bottom: 1px solid #FFD32D;
 }
 
-.shopping-cart .shopping-cart-items {
+.shopping-cart-items {
   padding: 20px 0px;
 }
 
-.shopping-cart .shopping-cart-total {
+.shopping-cart-total {
   min-height: 96px;
 }
 
-.shopping-cart .totalCompra {
+.totalCompra {
   margin-bottom: 0;
   margin-top: 0;
 }
 
-.shopping-cart .valor {
+.valor {
   margin-left: 1.5rem;
   margin-bottom: 0;
 }
