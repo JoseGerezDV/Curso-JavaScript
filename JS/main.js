@@ -22,7 +22,7 @@ function agregarAlCarritoClicked(event) {
 
 function agregarProductosAlCarrito (itemTitle,itemprecio,itemimagen){
    const productoCarritoRow =  document.createElement('div');
-   const contenidoCarrito =   ` 
+   const contenidoCarrito =    ` 
    <div class="row shoppingCartItem">
    <div class="col-6">
        <div class="shopping-cart-item d-flex align-items-center h-100 border-bottom pb-2 pt-1">
@@ -31,13 +31,13 @@ function agregarProductosAlCarrito (itemTitle,itemprecio,itemimagen){
        </div>
    </div>
    <div class="col-2">
-       <div class="shopping-cart-price d-flex align-items-center h-100 border-bottom pb-2 pt-3">
+       <div class="shopping-cart-price h-100 border-bottom pb-2 pt-3">
            <p class="item-price mb-0 shoppingCartItemPrice">${itemprecio}</p>
        </div>
    </div>
    <div class="col-4">
        <div
-           class="shopping-cart-quantity d-flex justify-content-between align-items-center h-100 border-bottom pb-2 pt-2">
+           class="shopping-cart-quantity d-flex justify-content-between align-items-center h-100 border-bottom pb-2">
            <input class="shopping-cart-quantity-input shoppingCartItemQuantity" type="number"
                value="1">
            <button class="btn btn-danger buttonDelete" type="button">X</button>
@@ -78,7 +78,8 @@ function subirTotalCarrito(){
     });
 
     shoppingCartTotal.innerHTML = `$ ${total}`;
- 
+
+    //addLocalStorage()    
 
 }
 
@@ -111,63 +112,118 @@ function comprarButtonclicked(){
                 // --------------------------------------//
                 // --------------------------------------//
 
-/*
+
 function addLocalStorage(){
-    localStorage.setItem('shoppingCartItemsContainer', JSON.stringify(shoppingCartItemsContainer))
+    localStorage.setItem('shoppingCartItemsContainer', JSON.stringify('.shoppingCartItem'))
   }
   
   window.onload = function(){
     const storage = JSON.parse(localStorage.getItem('shoppingCartItemsContainer'));
     if(storage){
-        shoppingCartItemsContainer = storage;
+        productoCarritoRow = storage;
       renderCarrito()
     }
-  }*/
+  }
 
                 // --------------------------------------//
                 // --------------------------------------//
                 // ---------------- BUSCADOR ------------//
                 // --------------------------------------//
                 // --------------------------------------//
-
-
+  
   document.addEventListener("keyup", e=>{
 
     if (e.target.matches("#barrabusqueda")){
   
         if (e.key ==="Escape")e.target.value = ""
   
-        document.querySelectorAll(".item-title").forEach(fruta =>{
+        document.querySelectorAll(".item-title").forEach(electro =>{
   
-            fruta.textContent.toLowerCase().includes(e.target.value.toLowerCase())
-              ?fruta.classList.remove("filtro")
-              :fruta.classList.add("filtro")
+            electro.textContent.toLowerCase().includes(e.target.value.toLowerCase())
+              ?electro.classList.remove("filtro")
+              :electro.classList.add("filtro")
         })
   
     }  
   
   })
 
-  //FILTRO POR CATEGORIAS
+                // --------------------------------------//
+                // --------------------------------------//
+                // ------- Filtro por categorías --------//
+                // --------------------------------------//
+                // --------------------------------------//
 
-  $(document).ready(function(){
+                
 
-    $('.category_item').click(function(){
-    let catProduct = $(this).attr('category');
+    $(document).ready(function(){
 
-    $('.product_item').hide();
-
-    $('.product_item[category="'+catProduct+'"]').show();
-
-    });   
+        $('.category_item').click(function(){
+        let catProduct = $(this).attr('category');
     
-    $('.category_item[category="todo"]').click(function(){
-        $('.product_item').show();
-    })
+        $('.product_item').hide();
+    
+        $('.product_item[category="'+catProduct+'"]').show();
+    
+        });   
+        
+        $('.category_item[category="todo"]').click(function(){
+            $('.product_item').show();
+        })
+    
+      });
 
-  });
+                // ---------------------------------------------//
+                // ---------------- FILTRO POR -----------------//
+                // ---------------- RANGO DE  ------------------//
+                // ---------------- PRECIO  --------------------//
+                // ---------------------------------------------//
+
+    let aside = $(`
+            <aside class="col-md-2 d-flex flex-column">
+            </aside>
+        `
+    );
+
+    let rangoDePrecio = $(`
+    <hr>
+    <p>Rango de precio</p>
+    <form onsubmit="return false" class="precioRange d-flex flex-column">
+        <label for="rangeSlider_inversed">Mínimo:</label>
+        <input id="rangeSlider_inversed" type="range" min="50000" max="100000" value="50000"></input>
+        <output>50000</output>
+        <label for="rangeSlider">Máximo:</label>
+        <input id="rangeSlider" type="range" min="70000" max="350000" value="70000"></input>
+        <output>70000</output>
+        <input class="btn btn-primary" type="submit" value="Aplicar">
+    </div>
+    `);
 
 
+    $('aside').append(rangoDePrecio)
+    $('aside').on('submit', 'form.precioRange', (e) => {
+        let precioValorMayor = e.target[2].value
+        let precioValorMenor = e.target[0].value
+        
+        for (const producto of $('.unProducto')) {
+            
+            let precioEnProducto = $(producto).children('div')[0].lastElementChild.innerHTML
+
+            if (parseInt(precioEnProducto) > parseInt(precioValorMenor) && parseInt(precioEnProducto) < parseInt(precioValorMayor)) {
+
+            } else {
+                producto.remove()
+            }
+
+        }
+    });
+
+    $('aside').on('input', '#rangeSlider', (e) => {
+        e.target.nextElementSibling.value = e.target.value
+    }); 
+    $('aside').on('input', '#rangeSlider_inversed', (e) => {
+        e.target.nextElementSibling.value = e.target.value
+    }); 
 
     
 
