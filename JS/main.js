@@ -79,8 +79,10 @@ function subirTotalCarrito(){
 
     shoppingCartTotal.innerHTML = `$ ${total}`;
 
-    //addLocalStorage()    
 
+    //LOCAL STORAGE
+    addLocalStorage()    
+    //LOCAL STORAGE
 }
 
 // DAMOS VIDA AL BOTON DE REMOVER PRODUCTO DEL CARRITO - TAMBIEN SE DESCUENTA SU VALOR DEL TOTAL -
@@ -113,17 +115,17 @@ function comprarButtonclicked(){
                 // --------------------------------------//
 
 
-function addLocalStorage(){
-    localStorage.setItem('shoppingCartItemsContainer', JSON.stringify('.shoppingCartItem'))
-  }
-  
-  window.onload = function(){
-    const storage = JSON.parse(localStorage.getItem('shoppingCartItemsContainer'));
-    if(storage){
-        productoCarritoRow = storage;
-      renderCarrito()
+    function addLocalStorage(){
+        localStorage.setItem('shoppingCartItemsContainer', JSON.stringify(shoppingCartItemsContainer))
     }
-  }
+    
+    window.onload = function(){
+        const storage = JSON.parse(localStorage.getItem('shoppingCartItemsContainer'));
+        if(storage){
+            shoppingCartItemsContainer = storage;
+            agregarProductosAlCarrito(itemTitle,itemprecio,itemimagen)
+        }
+    }
 
                 // --------------------------------------//
                 // --------------------------------------//
