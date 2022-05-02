@@ -53,9 +53,12 @@ function agregarProductosAlCarrito (itemTitle,itemprecio,itemimagen){
         productoCarritoRow.querySelector('.shoppingCartItemQuantity').addEventListener('change', quantityChanged);
 
         subirTotalCarrito();
-  
+
            
 }
+
+
+        
 
 //FUNCION TOTAL CARRITO -  SUMA DE TODOS LOS PRODUCTOS -
 
@@ -79,10 +82,10 @@ function subirTotalCarrito(){
 
     shoppingCartTotal.innerHTML = `$ ${total}`;
 
-
     //LOCAL STORAGE
     addLocalStorage()    
     //LOCAL STORAGE
+    
 }
 
 // DAMOS VIDA AL BOTON DE REMOVER PRODUCTO DEL CARRITO - TAMBIEN SE DESCUENTA SU VALOR DEL TOTAL -
@@ -117,15 +120,17 @@ function comprarButtonclicked(){
 
     function addLocalStorage(){
         localStorage.setItem('shoppingCartItemsContainer', JSON.stringify(shoppingCartItemsContainer))
-    }
+    
     
     window.onload = function(){
         const storage = JSON.parse(localStorage.getItem('shoppingCartItemsContainer'));
         if(storage){
             shoppingCartItemsContainer = storage;
-            agregarProductosAlCarrito(itemTitle,itemprecio,itemimagen)
+            agregarProductosAlCarrito(itemTitle,itemprecio,itemimagen);
         }
     }
+}
+
 
                 // --------------------------------------//
                 // --------------------------------------//
