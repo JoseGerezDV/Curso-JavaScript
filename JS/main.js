@@ -21,6 +21,13 @@ function agregarAlCarritoClicked(event) {
 }
 
 function agregarProductosAlCarrito (itemTitle,itemprecio,itemimagen){
+
+    const alert = document.querySelector('.alert')    
+    setTimeout(function(){
+        alert.classList.add('hide')
+    },2000)
+    alert.classList.remove('hide')
+
    const productoCarritoRow =  document.createElement('div');
    const contenidoCarrito =    ` 
    <div class="row shoppingCartItem">
@@ -91,6 +98,13 @@ function subirTotalCarrito(){
 // DAMOS VIDA AL BOTON DE REMOVER PRODUCTO DEL CARRITO - TAMBIEN SE DESCUENTA SU VALOR DEL TOTAL -
 
 function removerProductoDelCarrito(event){
+
+    const alert = document.querySelector('.remove')    
+    setTimeout(function(){
+        alert.classList.add('remove')
+    },2000)
+    alert.classList.remove('remove')
+
     const borrarArticulo = event.target;
     borrarArticulo.closest('.shoppingCartItem').remove();
     subirTotalCarrito();

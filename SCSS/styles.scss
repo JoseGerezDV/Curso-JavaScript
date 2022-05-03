@@ -111,6 +111,18 @@ form.form-inline input.form-control {
     margin: 0 auto;
 }
 
+.alert{
+    z-index: 100;
+}
+
+.hide{
+    display: none;
+}
+
+.remove{
+    display: none;
+   
+}
 
 .unProducto {
     display: flex;
