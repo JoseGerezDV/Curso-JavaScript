@@ -47,7 +47,6 @@ class Carrito{
             e.target.parentElement.parentElement.remove();
             producto = e.target.parentElement.parentElement;
             productoID = producto.querySelector('a').getAttribute('data-id');
-            console.log("🚀 ~ file: main.js ~ line 50 ~ Carrito ~ eliminarProducto ~ productoID", productoID)
         }
         this.eliminarProductoLocalStorage(productoID);
     }
@@ -57,6 +56,7 @@ class Carrito{
         while(listaProductos.firstChild){
             listaProductos.removeChild(listaProductos.firstChild)
         }
+        this.vaciarLocalStorage();
         return false;
     }
 
@@ -89,6 +89,31 @@ class Carrito{
         });
 
         localStorage.setItem('productos', JSON.stringify(productosLS));
+    }
+
+    leerLocalStorage(){
+        let productosLS;
+        productosLS = this.obtenerProductosLocalStorage();
+        productosLS.forEach(function(producto){
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>
+                    <img src="${producto.imagen}" width=100>
+                </td>
+                <td>${producto.titulo}</td>
+                <td>${producto.precio}</td>
+                <td>
+                    <a href="#" class="borrar-producto fas fa-times-circle" data-id="${producto.id}"></a>
+                </td>
+
+                `;
+
+            listaProductos.appendChild(row);
+        });
+    }
+
+    vaciarLocalStorage(){
+        localStorage.clear();
     }
 
 }
