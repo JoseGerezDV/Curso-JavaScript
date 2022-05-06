@@ -1,173 +1,104 @@
-const botonAgregarAlCarritoCompras = document.querySelectorAll('.addToCart');
-botonAgregarAlCarritoCompras.forEach(botonAgregarProducto =>{
-    botonAgregarProducto.addEventListener('click', agregarAlCarritoClicked);
-});
+class Carrito{
 
-const comprarButton = document.querySelector('.comprarButton');
-comprarButton.addEventListener('click', comprarButtonclicked);
+        //añadir al carrito
 
-const shoppingCartItemsContainer = document.querySelector('.shoppingCartItemsContainer');
-
-function agregarAlCarritoClicked(event) {
-   const button = event.target;
-   const unProducto = button.closest('.unProducto');
-   const itemTitle = unProducto.querySelector('.item-title').textContent;
-   const itemprecio = unProducto.querySelector('.precio').textContent;
-   const itemimagen = unProducto.querySelector('.imgResponsive').src;
-
-
-   agregarProductosAlCarrito(itemTitle,itemprecio,itemimagen)
-  
-}
-
-function agregarProductosAlCarrito (itemTitle,itemprecio,itemimagen){
-
-    const alert = document.querySelector('.alert')    
-    setTimeout(function(){
-        alert.classList.add('hide')
-    },2000)
-    alert.classList.remove('hide')
-
-   const productoCarritoRow =  document.createElement('div');
-   const contenidoCarrito =    ` 
-   <div class="row shoppingCartItem">
-   <div class="col-6">
-       <div class="shopping-cart-item d-flex align-items-center h-100 border-bottom pb-2 pt-1">
-           <img src=${itemimagen} class="shopping-cart-image">
-           <h6 class="shopping-cart-item-title shoppingCartItemTitle text-truncate p-2">${itemTitle}</h6>
-       </div>
-   </div>
-   <div class="col-2">
-       <div class="shopping-cart-price h-100 border-bottom pb-2 pt-3">
-           <p class="item-price mb-0 shoppingCartItemPrice">${itemprecio}</p>
-       </div>
-   </div>
-   <div class="col-4">
-       <div
-           class="shopping-cart-quantity d-flex justify-content-between align-items-center h-100 border-bottom pb-2">
-           <input class="shopping-cart-quantity-input shoppingCartItemQuantity" type="number"
-               value="1">
-           <button class="btn btn-danger buttonDelete" type="button">X</button>
-       </div>
-   </div>
-</div>`;
-
-        productoCarritoRow.innerHTML = contenidoCarrito
-        shoppingCartItemsContainer.append(productoCarritoRow);
-
-        productoCarritoRow.querySelector('.buttonDelete').addEventListener('click',removerProductoDelCarrito);
-
-        productoCarritoRow.querySelector('.shoppingCartItemQuantity').addEventListener('change', quantityChanged);
-
-        subirTotalCarrito();
-
-           
-}
-
-
-        
-
-//FUNCION TOTAL CARRITO -  SUMA DE TODOS LOS PRODUCTOS -
-
-function subirTotalCarrito(){
-    let total = 0;
-    const shoppingCartTotal = document.querySelector('.shoppingCartTotal');
-
-    const shoppingCartItems = document.querySelectorAll('.shoppingCartItem');
-
-    shoppingCartItems.forEach((shoppingCartItem) => { 
-        const shoppingCartItemsPriceElementos = shoppingCartItem.querySelector('.shoppingCartItemPrice');
-
-        const shoppingCartItemPrice = Number(shoppingCartItemsPriceElementos.textContent.replace('$',''));
-          
-        const elementosShoppingCartItemQuantity = shoppingCartItem.querySelector('.shoppingCartItemQuantity');
-
-        const shoppingCartItemQuantity = Number(elementosShoppingCartItemQuantity.value);
-
-        total = total + shoppingCartItemPrice * shoppingCartItemQuantity;
-    });
-
-    shoppingCartTotal.innerHTML = `$ ${total}`;
-
-    //LOCAL STORAGE
-    addLocalStorage()    
-    //LOCAL STORAGE
-    
-}
-
-// DAMOS VIDA AL BOTON DE REMOVER PRODUCTO DEL CARRITO - TAMBIEN SE DESCUENTA SU VALOR DEL TOTAL -
-
-function removerProductoDelCarrito(event){
-
-    const alert = document.querySelector('.remove')    
-    setTimeout(function(){
-        alert.classList.add('remove')
-    },2000)
-    alert.classList.remove('remove')
-
-    const borrarArticulo = event.target;
-    borrarArticulo.closest('.shoppingCartItem').remove();
-    subirTotalCarrito();
-}
-
-// SE LE DA UTILIDAD AL INPUT NUMBER - SI DEJAR QUE EL CLIENTE INGRESE NUMEROS NEGATIVOS TAMBIEN LA CANTIDAD INFLUYE EN EL VALOR TOTAL DEL CARRITO
-
-function quantityChanged(event){
-   const input = event.target;
-   if(input.value <= 0){
-       input.value = 1;
-   }
-   subirTotalCarrito();
-}
-
-function comprarButtonclicked(){
-    shoppingCartItemsContainer.innerHTML = '';
-    subirTotalCarrito();
-}
-
-                // --------------------------------------//
-                // --------------------------------------//
-                // ----------- LOCAL STORAGE ------------//
-                // --------------------------------------//
-                // --------------------------------------//
-
-
-    function addLocalStorage(){
-        localStorage.setItem('shoppingCartItemsContainer', JSON.stringify(shoppingCartItemsContainer))
-    
-    
-    window.onload = function(){
-        const storage = JSON.parse(localStorage.getItem('shoppingCartItemsContainer'));
-        if(storage){
-            shoppingCartItemsContainer = storage;
-            agregarProductosAlCarrito(itemTitle,itemprecio,itemimagen);
+    comprarProducto(e){
+        e.preventDefault();
+        if(e.target.classList.contains('agregar-carrito')){
+            const producto = e.target.parentElement.parentElement;
+            this.leerDatosProducto(producto)
+            
         }
     }
+
+    leerDatosProducto(producto){
+        const infoProducto = {
+            imagen : producto.querySelector('img').src,
+            titulo : producto.querySelector('.item-title').textContent,
+            precio : producto.querySelector('.precio').textContent,
+            id : producto.querySelector('a').getAttribute('data-id'),
+            cantidad : 1
+        }
+        this.insertarCarrito(infoProducto);
+    }
+
+    insertarCarrito(producto){
+        const row = document.createElement('tr');
+        row.innerHTML = `
+        <td>
+            <img src="${producto.imagen}" width=100>
+        </td>
+        <td>${producto.titulo}</td>
+        <td>${producto.precio}</td>
+        <td>
+            <a href="#" class="borrar-producto fas fa-times-circle" data-id="${producto.id}"></a>
+        </td>
+
+        `;
+
+        listaProductos.appendChild(row)
+        this.guardarProductosLocalStorage(producto);
+    }
+
+    eliminarProducto(e){
+        e.preventDefault();
+        let producto, productoID;
+        if(e.target.classList.contains('borrar-producto')){
+            e.target.parentElement.parentElement.remove();
+            producto = e.target.parentElement.parentElement;
+            productoID = producto.querySelector('a').getAttribute('data-id');
+            console.log("🚀 ~ file: main.js ~ line 50 ~ Carrito ~ eliminarProducto ~ productoID", productoID)
+        }
+        this.eliminarProductoLocalStorage(productoID);
+    }
+
+    vaciarCarrito(e){
+        e.preventDefault();
+        while(listaProductos.firstChild){
+            listaProductos.removeChild(listaProductos.firstChild)
+        }
+        return false;
+    }
+
+    guardarProductosLocalStorage(producto){
+        let productos;
+        productos = this.obtenerProductosLocalStorage();
+        productos.push(producto);
+        localStorage.setItem('productos',JSON.stringify(productos));        
+    }
+
+    obtenerProductosLocalStorage(){
+        let productoLS;
+
+        if(localStorage.getItem('productos') === null){
+            productoLS = [];
+        }
+        else {
+            productoLS = JSON.parse(localStorage.getItem('productos'));
+        }
+        return productoLS;
+    }
+
+    eliminarProductoLocalStorage(productoID){
+        let productosLS;
+        productosLS = this.obtenerProductosLocalStorage();
+        productosLS.forEach(function(productoLS, index){
+            if(productoLS.id === productoID){
+                productosLS.splice(index, 1);
+            }
+        });
+
+        localStorage.setItem('productos', JSON.stringify(productosLS));
+    }
+
 }
 
 
-                // --------------------------------------//
-                // --------------------------------------//
-                // ---------------- BUSCADOR ------------//
-                // --------------------------------------//
-                // --------------------------------------//
-  
-  document.addEventListener("keyup", e=>{
 
-    if (e.target.matches("#barrabusqueda")){
-  
-        if (e.key ==="Escape")e.target.value = ""
-  
-        document.querySelectorAll(".item-title").forEach(electro =>{
-  
-            electro.textContent.toLowerCase().includes(e.target.value.toLowerCase())
-              ?electro.classList.remove("filtro")
-              :electro.classList.add("filtro")
-        })
-  
-    }  
-  
-  })
+
+
+
+
 
                 // --------------------------------------//
                 // --------------------------------------//
