@@ -1,6 +1,6 @@
 class Carrito{
 
-        //añadir al carrito
+            //añadir al carrito
 
     comprarProducto(e){
         e.preventDefault();
@@ -107,22 +107,42 @@ class Carrito{
         });
     }
 
+    //Productos LocalStorage pestaña Compras
+
+    leerLocalStorageCompra(){
+        let productosLS;
+        productosLS = this.obtenerProductosLocalStorage();
+        productosLS.forEach(function(producto){
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>
+                    <img src="${producto.imagen}" width=100>
+                </td>
+                <td>${producto.titulo}</td>
+                <td>${producto.precio}</td>
+                <td>
+                    <input type="number" class="form-control cantidad" min="1" value= ${producto.cantidad}>
+                </td>
+                <td>${producto.precio * producto.cantidad}</td>
+                <td>
+                    <a href="#" class="borrar-producto fas fa-times-circle" data-id="${producto.id}"></a>
+                </td>
+
+                `;
+
+            listaCompra.appendChild(row);
+        });
+    }
+
+
     vaciarLocalStorage(){
         localStorage.clear();
     }
 
     procesarPedido(e){
         e.preventDefault();
-        if (this.obtenerProductosLocalStorage().length === 0){
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Something went wrong!',
-                footer: '<a href="">Why do I have this issue?</a>'
-              })
-        } else {
-        location.href = "compra.html";
-        }
+        (this.obtenerProductosLocalStorage().length === 0) ? swal("Atención!", "No hay ningun producto en el carrito!", "warning") : location.href = "compra.html";
+
     }
 
 }
@@ -206,5 +226,4 @@ class Carrito{
         e.target.nextElementSibling.value = e.target.value
     }); 
 
-    
 
