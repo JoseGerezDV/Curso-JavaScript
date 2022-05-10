@@ -241,4 +241,12 @@ aside .precioRange input {
 .filtro {
   display: none;
 }
+
+#cargando {
+  display: none;
+}
+
+.text-end {
+  font-size: .8rem;
+}
 /*# sourceMappingURL=styles.css.map */

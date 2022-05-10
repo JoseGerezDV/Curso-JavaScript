@@ -70,13 +70,8 @@ class Carrito{
     obtenerProductosLocalStorage(){
         let productoLS;
 
-        if(localStorage.getItem('productos') === null){
-            productoLS = [];
-        }
-        else {
-            productoLS = JSON.parse(localStorage.getItem('productos'));
-        }
-        return productoLS;
+    (localStorage.getItem('productos') === null) ? productoLS = [] : productoLS = JSON.parse(localStorage.getItem('productos')); return productoLS;
+
     }
 
     eliminarProductoLocalStorage(productoID){
@@ -116,12 +111,21 @@ class Carrito{
         localStorage.clear();
     }
 
+    procesarPedido(e){
+        e.preventDefault();
+        if (this.obtenerProductosLocalStorage().length === 0){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+                footer: '<a href="">Why do I have this issue?</a>'
+              })
+        } else {
+        location.href = "compra.html";
+        }
+    }
+
 }
-
-
-
-
-
 
 
 
