@@ -112,7 +112,7 @@ class Carrito{
     leerLocalStorageCompra(){
         let productosLS;
         productosLS = this.obtenerProductosLocalStorage();
-        productosLS.forEach(function(producto){
+        productosLS.forEach(function (producto){
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>
@@ -121,15 +121,13 @@ class Carrito{
                 <td>${producto.titulo}</td>
                 <td>${producto.precio}</td>
                 <td>
-                    <input type="number" class="form-control cantidad" min="1" value= ${producto.cantidad}>
+                    <input type="number" class="form-control cantidad" min="1" value=${producto.cantidad}>
                 </td>
-                <td>${producto.precio * producto.cantidad}</td>
+                <td id='subtotales'>${producto.precio * producto.cantidad}</td>
                 <td>
-                    <a href="#" class="borrar-producto fas fa-times-circle" data-id="${producto.id}"></a>
+                    <a href="#" class="borrar-producto fas fa-times-circle" style="font-size:30px" data-id="${producto.id}"></a>
                 </td>
-
-                `;
-
+            `;
             listaCompra.appendChild(row);
         });
     }
