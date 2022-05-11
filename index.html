@@ -20,7 +20,7 @@
             <div class="row">
                 <div id="logoelectro" class="col-md-6 col-xs-12">
                     <a href="#">
-                    <img src="./imagenes/logoelectrohome.png" width="50%" alt="LogoElectroHome">
+                        <img src="./imagenes/logoelectrohome.png" width="50%" alt="LogoElectroHome">
                     </a>
                 </div>
 
@@ -59,59 +59,105 @@
             </div>
         </div>
 
-        <div class="mb-5">
+       <!-- <div class="mb-5">
             <div class="row align-items-stretch justify-content-between">
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                     <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Carrito de Compras</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarCollapse">
-                        <ul class="navbar-nav">                  
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Mis productos:
-                            </a>
-                            <div id="carrito" class="dropdown-menu" aria-labelledby="navbarCollapse">
-                                <table id="lista-carrito" class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Imagen</th>
-                                            <th>Nombre</th>
-                                            <th>Precio</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody></tbody>
-                                </table>
+                        <a class="navbar-brand" href="#">Carrito de Compras</a>                        
+                        <div class="navbar-collapse" id="navbarCollapse">
+                            <ul class="navbar-nav">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Mis productos:
+                                    </a>
+                                    <div id="carrito" class="dropdown-menu" aria-labelledby="navbarCollapse">
+                                        <table id="lista-carrito" class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Imagen</th>
+                                                    <th>Nombre</th>
+                                                    <th>Precio</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
 
-                                <a href="#" id="vaciar-carrito" class="btn btn-success w-100">Vaciar Carrito</a>
-                                <a href="#" id="procesar-pedido" class="btn btn-danger w-100">Procesar
-                                    Compra</a>
-                            </div>
-                        </li>
-                        </ul>
-                    </div>
+                                        <a href="#" id="vaciar-carrito" class="btn btn-success w-100">Vaciar Carrito</a>
+                                        <a href="#" id="procesar-pedido" class="btn btn-danger w-100">Procesar
+                                            Compra</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </nav>
             </div>
-        </div>
+        </div>-->
+
+        <nav class="navbar navbar-light bg-light mb-5">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Carrito de compras</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title font-weight" id="offcanvasNavbarLabel">Carrito</h5>
+                  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">
+                            <span style="font-size: 3em; color: Tomato;">
+                            <i class="fa-solid fa-cart-arrow-down"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Mis productos:
+                    </a>
+                    <div id="carrito" class="dropdown-menu" aria-labelledby="navbarCollapse">
+                        <table id="lista-carrito" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Imagen</th>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+
+                        <a href="#" id="vaciar-carrito" class="btn btn-success w-100">Vaciar Carrito</a>
+                        <a href="#" id="procesar-pedido" class="btn btn-danger w-100">Procesar
+                            Compra</a>
+                    </div>
+                    </li>                   
+                </div>
+              </div>
+            </div>
+          </nav>
 
 
     </header>
 
-    
-    <section  class="shopping-cart">      
-            <div class="row">
-                <div class="col-12">
-                    <div class="shopping-cart-total d-flex align-items-center">
-                        <p class="totalCompra"></p>
-                        <p class="valor shoppingCartTotal"></p>
-                        <button id="botonCompra" class="btn btn-success comprarButton"></button>
-                    </div>
+
+    <section class="shopping-cart">
+        <div class="row">
+            <div class="col-12">
+                <div class="shopping-cart-total d-flex align-items-center">
+                    <p class="totalCompra"></p>
+                    <p class="valor shoppingCartTotal"></p>
+                    <button id="botonCompra" class="btn btn-success comprarButton"></button>
                 </div>
             </div>
+        </div>
 
     </section>
     <!-- fin seccion SHOPPING CART -->
@@ -145,7 +191,7 @@
     </div>
 
     <section id="sectionbody" class="container d-flex justify-content-center align-items-center flex-column">
-        
+
         <div class="grid-container row d-flex">
             <h3 class="col-md-12">Listado de productos</h3>
             <aside class="col-md-2 d-flex flex-column">
@@ -177,9 +223,9 @@
                             <input name="identidicador" class="category_item" category="heladeras" type="radio">
                             <label for="heladeras">HELADERAS</label>
                         </div>
-                       
+
                     </form>
-                </div>                
+                </div>
             </aside>
 
             <div id="lista-productos" class="grid col-md-10" class="products">

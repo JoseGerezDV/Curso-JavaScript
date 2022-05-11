@@ -140,6 +140,14 @@ header {
   margin-bottom: 6rem;
 }
 
+.offcanvas-header {
+  padding-bottom: 0;
+}
+
+.offcanvas-body {
+  padding-top: 0;
+}
+
 .btn-outline-primary {
   background-color: #FFD32D;
   border-color: #FFD32D;
