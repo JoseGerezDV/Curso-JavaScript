@@ -49,6 +49,7 @@ class Carrito{
             productoID = producto.querySelector('a').getAttribute('data-id');
         }
         this.eliminarProductoLocalStorage(productoID);
+        this.calcularTotal();
     }
 
     vaciarCarrito(e){
@@ -121,7 +122,7 @@ class Carrito{
                 <td>${producto.titulo}</td>
                 <td>${producto.precio}</td>
                 <td>
-                    <input type="number" class="form-control cantidad" min="1" value=${producto.cantidad}>
+                    ${producto.cantidad}
                 </td>
                 <td id='subtotales'>${producto.precio * producto.cantidad}</td>
                 <td>
@@ -140,6 +141,24 @@ class Carrito{
     procesarPedido(e){
         e.preventDefault();
         (this.obtenerProductosLocalStorage().length === 0) ? swal("Atención!", "No hay ningun producto en el carrito!", "warning") : location.href = "compra.html";
+
+    }
+
+    calcularTotal(){
+        let productoLS;
+        let total = 0, subtotal = 0, iva = 0
+        productoLS = this. obtenerProductosLocalStorage();
+        for(let i = 0; i < productoLS.length; i++){
+            let element = Number(productoLS[i].precio * productoLS[i].cantidad);
+            total = total + element;
+        }
+
+        iva = parseFloat(total * 0.21).toFixed(2);
+        subtotal = parseFloat(total - iva).toFixed(2);
+
+        document.getElementById('subtotal').innerHTML = "$" + subtotal;
+        document.getElementById('iva').innerHTML = "$" + iva;
+        document.getElementById('total').innerHTML = "$" + total.toFixed(2);
 
     }
 

@@ -132,8 +132,14 @@ aside {
 }
 
 #cargando {
+    max-width: 15rem;
     display: none;
 }
+
+#enviadoFin{
+    max-width: 10rem ;
+}
+
 .text-end{
     font-size: .8rem;
 }
