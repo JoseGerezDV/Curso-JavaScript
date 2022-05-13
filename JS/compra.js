@@ -52,8 +52,7 @@ function procesarCompra(e) {
                     compra.vaciarLocalStorage();
                     window.location = "index.html";
                 },3000);
-            },2000)
-            
+            },2000)            
         }, 3000);
        
     }

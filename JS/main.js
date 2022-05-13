@@ -7,7 +7,9 @@ class Carrito{
         if(e.target.classList.contains('agregar-carrito')){
             const producto = e.target.parentElement.parentElement;
             this.leerDatosProducto(producto)
-            
+            setTimeout(()=> {
+                swal("Producto agregado!", "Vea su carrito en la parte superior del sitio", "success")
+            });            
         }
     }
 
