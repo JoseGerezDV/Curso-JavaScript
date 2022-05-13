@@ -1,110 +1,89 @@
 [
     {
 		"id": 1,
-		"marca": "HP PAVILION",
-		"imagen": "img/hp1.jpg",
-		"precio": "5000",
-		"detalles": ["8 GB RAM", "COLOR PLATEADO", "256 GB DISCO SSD"]
+		"titulo": "Samsung S20",
+		"imagen": "./imagenes/samsungS20.jpg",
+		"precio": "77999",
+		"category": "celular"
 	},
-
-    
     {
-		"id": 1,
-		"marca": "HP PAVILION",
-		"imagen": "img/hp1.jpg",
-		"precio": "5000",
-		"detalles": ["8 GB RAM", "COLOR PLATEADO", "256 GB DISCO SSD"]
+		"id": 2,
+		"titulo": "Iphone 13 128Gb",
+		"imagen": "./imagenes/Iphone13.jpg",
+		"precio": "349999",
+		"category": "celular"
 	},
-
-
     {
-		"id": 1,
-		"marca": "HP PAVILION",
-		"imagen": "img/hp1.jpg",
-		"precio": "5000",
-		"detalles": ["8 GB RAM", "COLOR PLATEADO", "256 GB DISCO SSD"]
+		"id": 3,
+		"titulo": "Motorola G Stylus",
+		"imagen": "./imagenes/MotoGStylus.jpg",
+		"precio": "119999",
+		"category": "celular"
 	},
-
-
     {
-		"id": 1,
-		"marca": "HP PAVILION",
-		"imagen": "img/hp1.jpg",
-		"precio": "5000",
-		"detalles": ["8 GB RAM", "COLOR PLATEADO", "256 GB DISCO SSD"]
+		"id": 4,
+		"titulo": "TV Samsung 55",
+		"imagen": "./imagenes/samsung55.jpg",
+		"precio": "109999",
+		"category": "tv"
 	},
-
-
     {
-		"id": 1,
-		"marca": "HP PAVILION",
-		"imagen": "img/hp1.jpg",
-		"precio": "5000",
-		"detalles": ["8 GB RAM", "COLOR PLATEADO", "256 GB DISCO SSD"]
+		"id": 5,
+		"titulo": "TV NOBLEX 50' 4K",
+		"imagen": "./imagenes/Noblex50.jpg",
+		"precio": "84999",
+		"category": "tv"
 	},
-
-
     {
-		"id": 1,
-		"marca": "HP PAVILION",
-		"imagen": "img/hp1.jpg",
-		"precio": "5000",
-		"detalles": ["8 GB RAM", "COLOR PLATEADO", "256 GB DISCO SSD"]
+		"id": 6,
+		"titulo": "TV LG 65' 4K",
+		"imagen": "./imagenes/LG.jpg",
+		"precio": "169999",
+		"category": "tv"
 	},
-
-    
     {
-		"id": 1,
-		"marca": "HP PAVILION",
-		"imagen": "img/hp1.jpg",
-		"precio": "5000",
-		"detalles": ["8 GB RAM", "COLOR PLATEADO", "256 GB DISCO SSD"]
+		"id": 7,
+		"titulo": "Lavarropas LG 8.5kg",
+		"imagen": "./imagenes/LavLg8.5kg.jpg",
+		"precio": "159999",
+		"category": "lavarropas"
 	},
-
-
     {
-		"id": 1,
-		"marca": "HP PAVILION",
-		"imagen": "img/hp1.jpg",
-		"precio": "5000",
-		"detalles": ["8 GB RAM", "COLOR PLATEADO", "256 GB DISCO SSD"]
+		"id": 8,
+		"titulo": "Lavarropas Samsung 7Kg",
+		"imagen": "./imagenes/LavSams7kg.jpg",
+		"precio": "87999",
+		"category": "lavarropas"
 	},
-
-
     {
-		"id": 1,
-		"marca": "HP PAVILION",
-		"imagen": "img/hp1.jpg",
-		"precio": "5000",
-		"detalles": ["8 GB RAM", "COLOR PLATEADO", "256 GB DISCO SSD"]
+		"id": 9,
+		"titulo": "Heladera GE 12L",
+		"imagen": "./imagenes/HelGE.jpg",
+		"precio": "179999",
+		"category": "heladeras"
 	},
-
-
     {
-		"id": 1,
-		"marca": "HP PAVILION",
-		"imagen": "img/hp1.jpg",
-		"precio": "5000",
-		"detalles": ["8 GB RAM", "COLOR PLATEADO", "256 GB DISCO SSD"]
+		"id": 10,
+		"titulo": "Heladera Whirlpool 10L",
+		"imagen": "./imagenes/HelWhirl.jpg",
+		"precio": "96999",
+		"category": "heladeras"
 	},
-
-
     {
-		"id": 1,
-		"marca": "HP PAVILION",
-		"imagen": "img/hp1.jpg",
-		"precio": "5000",
-		"detalles": ["8 GB RAM", "COLOR PLATEADO", "256 GB DISCO SSD"]
+		"id": 11,
+		"titulo": "MACbook pro m1",
+		"imagen": "./imagenes/Mcbook.jpg",
+		"precio": "324599",
+		"category": "notebook"
 	},
-
-
     {
-		"id": 1,
-		"marca": "HP PAVILION",
-		"imagen": "img/hp1.jpg",
-		"precio": "5000",
-		"detalles": ["8 GB RAM", "COLOR PLATEADO", "256 GB DISCO SSD"]
+		"id": 12,
+		"titulo": "Notebook Lenovo E15",
+		"imagen": "./imagenes/NotLenovo.jpg",
+		"precio": "179999",
+		"category": "notebook"
 	}
+
 
 
 ]

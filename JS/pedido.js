@@ -14,13 +14,17 @@ function cargarEventos (){
 
     vaciarCarritoBtn.addEventListener('click',(e)=>{carro.vaciarCarrito(e)});
 
-    document.addEventListener('DOMContentLoaded', carro.leerLocalStorage());
+    document.addEventListener("DOMContentLoaded", () => {
+		carro.leerLocalStorage();
+		fetchProductos();
+	});
+
 
     procesarPedidoBtn.addEventListener('click', (e)=> {carro.procesarPedido(e)});
 }
 
 async function fetchProductos() {
-	let res = await fetch("DATA/productos.json");
+	let res = await fetch("../DATA/productos.json");
 	let data = await res.json();
 	let html = "";
 	data.forEach((producto, index) => {
