@@ -1,3 +1,15 @@
+$(document).ready(function(){
+    let altura = $('.menu').offset().top;
+    
+    $(window).on('scroll',function(){
+        if ($(window).scrollTop()>altura){
+            $('.menu').addClass('menu-fixed').removeClass('bg-light')
+        } else {
+            $('.menu').removeClass('menu-fixed').addClass('bg-light');
+        }
+    })
+})
+
 class Carrito{
 
             //añadir al carrito
@@ -49,6 +61,7 @@ class Carrito{
             e.target.parentElement.parentElement.remove();
             producto = e.target.parentElement.parentElement;
             productoID = producto.querySelector('a').getAttribute('data-id');
+            swal("Bye Bye!", "Producto eliminado del carrito!", "error");
         }
         this.eliminarProductoLocalStorage(productoID);
         this.calcularTotal();

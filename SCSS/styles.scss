@@ -3,7 +3,7 @@
 
 
 #bodyIndex{
-    background-color: #000000a9;
+    background-color: #154360;
 }
 
 .shopping-cart{
@@ -28,8 +28,8 @@
 
 
 .btn-outline-primary {
-    background-color: #FFD32D;
-    border-color: #FFD32D;
+    background-color: #ff6347;
+    border-color: #ff6347;
     color: #ffffff;
     margin-top: 18px !important;
     margin-left: 5px;
@@ -52,7 +52,7 @@ form.form-inline input.form-control {
 }
 
 .grid-container {
-    background-color: #ffffff;
+    background-color: #F4F6F7;
     padding: 2rem;
     border-radius: 5px;
     width: 100%;
@@ -143,4 +143,24 @@ aside {
 
 .text-end{
     font-size: .8rem;
+}
+
+@media screen and (max-width: 500px) {
+
+    #titulo-carrito{
+        display: none;
+    }
+   
+}
+
+/*Pestaña Compra*/
+
+#body-compra-id{
+    background-color:#E5E8E8;
+    margin-top: 0;
+    padding: 0;
+}
+
+#main-compra{
+    margin-bottom: 3rem;
 }
