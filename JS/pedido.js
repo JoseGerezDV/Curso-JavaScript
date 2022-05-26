@@ -39,9 +39,9 @@ async function fetchProductos() {
     </div>
 		`
 		if(index === 0){
-			html += `<div class="card-deck mb-3 md:w-10">${curr}`
+			html += `${curr}`
 		}else if(index % 3 === 0 && index !== 0){
-			html += `</div><div class="card-deck mb-3 md:w-10">${curr}`
+			html += `${curr}`
 		}else{
 			html += curr
 		}

@@ -1,3 +1,6 @@
+
+//Funcion Menu pegajoso
+
 $(document).ready(function(){
     let altura = $('.menu').offset().top;
     
