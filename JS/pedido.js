@@ -36,7 +36,7 @@ async function fetchProductos() {
 				<a class=" addToCart btn btn-primary agregar agregar-carrito" data-id="${producto.id}">Agregar</a>
 				<p class="precio">${producto.precio}</p>
 			</div>
-    </div>
+    	</div>
 		`
 		if(index === 0){
 			html += `${curr}`
